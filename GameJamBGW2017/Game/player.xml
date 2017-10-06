@@ -1,38 +1,94 @@
-<!-- Config file for the game -->
+<!-- player file for the game -->
 
 <file>
    <animations>
-      <anim speed = "1" name = "idle" loop = "true">
+      <anim speed = "1" name = "idle_red" loop = "true">
 	 <rect x = "0" y = "0" w = "500" h = "500"/>
       </anim>
-      <anim speed = "10" name = "run_up" loop = "true">
-	 <rect x = "0" y = "75" w = "48" h = "72"/>
-	 <rect x = "69" y = "78" w = "48" h = "72"/>
-	 <rect x = "210" y = "81" w = "48" h = "72"/>
+     <anim speed = "1" name = "idle_blue" loop = "true">
+       <rect x = "0" y = "0" w = "500" h = "500"/>
+     </anim>
+     <anim speed = "1" name = "idle_green" loop = "true">
+       <rect x = "0" y = "0" w = "500" h = "500"/>
+     </anim>
+      <anim speed = "10" name = "anim_X_red" loop = "false">
+	       <rect x = "0" y = "75" w = "48" h = "72"/>
+	       <rect x = "69" y = "78" w = "48" h = "72"/>
+	       <rect x = "210" y = "81" w = "48" h = "72"/>
          <rect x = "351" y = "78" w = "48" h = "72"/>
-	 <rect x = "417" y = "75" w = "48" h = "72"/>
-	 <rect x = "351" y = "78" w = "48" h = "72"/>
-	 <rect x = "210" y = "81" w = "48" h = "72"/>
-	 <rect x = "69" y = "78" w = "48" h = "72"/>
+	       <rect x = "417" y = "75" w = "48" h = "72"/>
+	       <rect x = "351" y = "78" w = "48" h = "72"/>
+	       <rect x = "210" y = "81" w = "48" h = "72"/>
+	       <rect x = "69" y = "78" w = "48" h = "72"/>
       </anim>
-      <anim speed = "10" name = "run_lateral" loop = "true">
-	 <rect x = "0" y = "156" w = "49" h = "72"/>
-	 <rect x = "69" y = "153" w = "49" h = "72"/>
-	 <rect x = "210" y = "156" w = "49" h = "72"/>
+     <anim speed = "10" name = "anim_X_blue" loop = "false">
+       <rect x = "0" y = "75" w = "48" h = "72"/>
+       <rect x = "69" y = "78" w = "48" h = "72"/>
+       <rect x = "210" y = "81" w = "48" h = "72"/>
+       <rect x = "351" y = "78" w = "48" h = "72"/>
+       <rect x = "417" y = "75" w = "48" h = "72"/>
+       <rect x = "351" y = "78" w = "48" h = "72"/>
+       <rect x = "210" y = "81" w = "48" h = "72"/>
+       <rect x = "69" y = "78" w = "48" h = "72"/>
+     </anim>
+     <anim speed = "10" name = "anim_X_green" loop = "false">
+       <rect x = "0" y = "75" w = "48" h = "72"/>
+       <rect x = "69" y = "78" w = "48" h = "72"/>
+       <rect x = "210" y = "81" w = "48" h = "72"/>
+       <rect x = "351" y = "78" w = "48" h = "72"/>
+       <rect x = "417" y = "75" w = "48" h = "72"/>
+       <rect x = "351" y = "78" w = "48" h = "72"/>
+       <rect x = "210" y = "81" w = "48" h = "72"/>
+       <rect x = "69" y = "78" w = "48" h = "72"/>
+     </anim>
+      <anim speed = "10" name = "anim_Y_red" loop = "false">
+	       <rect x = "0" y = "156" w = "49" h = "72"/>
+	       <rect x = "69" y = "153" w = "49" h = "72"/>
+	       <rect x = "210" y = "156" w = "49" h = "72"/>
          <rect x = "351" y = "156" w = "49" h = "72"/>
-	 <rect x = "417" y = "153" w = "49" h = "72"/>
-	 <rect x = "351" y = "156" w = "49" h = "72"/>
-	 <rect x = "210" y = "156" w = "49" h = "72"/>
-	 <rect x = "69" y = "156" w = "49" h = "72"/>
+	       <rect x = "417" y = "153" w = "49" h = "72"/>
+	       <rect x = "351" y = "156" w = "49" h = "72"/>
+	       <rect x = "210" y = "156" w = "49" h = "72"/>
+	       <rect x = "69" y = "156" w = "49" h = "72"/>
       </anim>
-      <anim speed = "10" name = "idle_lateral" loop = "true">
-	 <rect x = "210" y = "156" w = "49" h = "72"/>
+     <anim speed = "10" name = "anim_Y_blue" loop = "false">
+       <rect x = "0" y = "156" w = "49" h = "72"/>
+       <rect x = "69" y = "153" w = "49" h = "72"/>
+       <rect x = "210" y = "156" w = "49" h = "72"/>
+       <rect x = "351" y = "156" w = "49" h = "72"/>
+       <rect x = "417" y = "153" w = "49" h = "72"/>
+       <rect x = "351" y = "156" w = "49" h = "72"/>
+       <rect x = "210" y = "156" w = "49" h = "72"/>
+       <rect x = "69" y = "156" w = "49" h = "72"/>
+     </anim>
+     <anim speed = "10" name = "anim_Y_green" loop = "false">
+       <rect x = "0" y = "156" w = "49" h = "72"/>
+       <rect x = "69" y = "153" w = "49" h = "72"/>
+       <rect x = "210" y = "156" w = "49" h = "72"/>
+       <rect x = "351" y = "156" w = "49" h = "72"/>
+       <rect x = "417" y = "153" w = "49" h = "72"/>
+       <rect x = "351" y = "156" w = "49" h = "72"/>
+       <rect x = "210" y = "156" w = "49" h = "72"/>
+       <rect x = "69" y = "156" w = "49" h = "72"/>
+     </anim>
+      <anim speed = "10" name = "anim_A_red" loop = "false">
+	       <rect x = "210" y = "156" w = "49" h = "72"/>
       </anim>
-      <anim speed = "10" name = "idle_up" loop = "true">
-	 <rect x = "210" y = "81" w = "48" h = "72"/>
+     <anim speed = "10" name = "anim_A_blue" loop = "false">
+       <rect x = "210" y = "156" w = "49" h = "72"/>
+     </anim>
+     <anim speed = "10" name = "anim_A_green" loop = "false">
+       <rect x = "210" y = "156" w = "49" h = "72"/>
+     </anim>
+      <anim speed = "10" name = "anim_B_red" loop = "false">
+	       <rect x = "210" y = "81" w = "48" h = "72"/>
       </anim>
-      <anim speed = "10" name = "idle_down" loop = "true">
-	<rect x = "210" y = "6" w = "48" h = "72"/>
-      </anim>
+     <anim speed = "10" name = "anim_B_blue" loop = "false">
+       <rect x = "210" y = "81" w = "48" h = "72"/>
+     </anim>
+     <anim speed = "10" name = "anim_B_green" loop = "false">
+       <rect x = "210" y = "81" w = "48" h = "72"/>
+     </anim>
+  
    </animations>
 </file>

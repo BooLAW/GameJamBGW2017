@@ -183,20 +183,19 @@ bool Player::Update(float dt)
 bool Player::Draw(float dt)
 {
 	bool ret = true;
-	player_go->SetAnimation("idle");
+
 
 	//Movement
 	if (top_pos == true)
 	{
 		//iddle anim 
-		player_go->SetAnimation("idle");
+		player_go->SetAnimation("idle_top");
 	}
 	else if (middle_pos == true)
 	{
 		if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_A) == KEY_REPEAT)
 		{
-			//A anim
-			player_go->SetAnimation("A_anim");
+				player_go->SetAnimation("A_anim");
 		}
 		else if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_X) == KEY_REPEAT)
 		{
@@ -213,12 +212,15 @@ bool Player::Draw(float dt)
 			//B anim
 			player_go->SetAnimation("B_anim");
 		}
+		else
+			player_go->SetAnimation("idle_mid");
+
 
 	}
 	else if (bot_pos == true)
 	{
 		//iddle anim 
-		player_go->SetAnimation("idle");
+		player_go->SetAnimation("idle_bot");
 	}
 	
 	return ret;
