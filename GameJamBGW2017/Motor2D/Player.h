@@ -2,6 +2,23 @@
 #define _PLAYER_
 
 #include "Entity.h"
+const fPoint top_coord = { 125.f,100.f };
+const fPoint mid_coord = { 10.f,10.f };
+const fPoint bot_coord = { 100.f,125.f };
+
+enum id_color {
+	red = 1,
+	green,
+	yellow,
+	null_color
+};
+enum pos {
+	top = 1,
+	mid,
+	bot,
+	transition,
+	null_pos
+};
 
 class GameObject;
 class Player : public Entity
@@ -43,14 +60,16 @@ public:
 public:
 	GameObject* player_go = nullptr;
 
-	bool flip = false;
-	bool on_ground = false;
-	bool going_up = false;
-
-	float last_height = 0.0f;
+	id_color id = null_color;
+	pos dance_pos = null_pos;
+	//3 positions of the cheerleaders
+	bool top_pos = false;
+	bool middle_pos = false;
+	bool bot_pos = false;
+	fPoint curr_coord = { 0.f,0.f };
 
 private:
-	uint gamepad_num = 20;
+	uint gamepad_num = 0;
 	int camera = 1;
 };
 

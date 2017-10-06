@@ -2,15 +2,8 @@
 
 <file>
    <animations>
-      <anim speed = "10" name = "run_down" loop = "true">
-	 <rect x = "0" y = "0" w = "48" h = "72"/>
-	 <rect x = "69" y = "3" w = "48" h = "72"/>
-	 <rect x = "210" y = "6" w = "48" h = "72"/>
-         <rect x = "351" y = "3" w = "48" h = "72"/>
-	 <rect x = "420" y = "0" w = "48" h = "72"/>
-	 <rect x = "351" y = "3" w = "48" h = "72"/>
-	 <rect x = "210" y = "6" w = "48" h = "72"/>
-	 <rect x = "69" y = "3" w = "48" h = "72"/>
+      <anim speed = "1" name = "idle" loop = "true">
+	 <rect x = "0" y = "0" w = "500" h = "500"/>
       </anim>
       <anim speed = "10" name = "run_up" loop = "true">
 	 <rect x = "0" y = "75" w = "48" h = "72"/>

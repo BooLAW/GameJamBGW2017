@@ -29,7 +29,21 @@ bool MainScene::Start()
 
 	LOG("Start MainScene");
 
-	//Load Map
+	//Load Background
+	background = App->tex->LoadTexture("textures/background.jpg");
+	//Load Players
+	player1 = new Player();
+	player1->middle_pos = true;
+	//player2 = new Player();
+	//player2->top_pos = true;
+	//player3 = new Player();
+	//player3->bot_pos = true;
+
+
+	player1->LoadEntity();
+	//player2->LoadEntity();
+	//player3->LoadEntity();
+
 
 	return ret;
 }
@@ -44,6 +58,8 @@ bool MainScene::PreUpdate()
 bool MainScene::Update(float dt)
 {
 	bool ret = true;	
+
+	player1->Draw(dt);
 
 	return ret;
 }

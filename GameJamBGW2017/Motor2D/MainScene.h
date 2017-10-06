@@ -32,7 +32,11 @@ public:
 
 private:
 
-//	SDL_Texture* ring = nullptr; 
+	SDL_Texture* background = nullptr;
+
+	Player* player1 = nullptr;
+	Player* player2 = nullptr;
+	Player* player3 = nullptr;
 
 };
 
