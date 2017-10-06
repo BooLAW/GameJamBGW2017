@@ -46,7 +46,6 @@ bool IntroScene::Start()
 	int size = App->fs->Load("intro_screen.xml", &buf);
 	pugi::xml_parse_result result = doc.load_buffer(buf, size);
 	RELEASE(buf);
-	int aux = doc.child("file").child("animations").child("anim").attribute("speed").as_int();
 	
 	start_cheer_animator = new Animator();	
 	start_cheer_animator->LoadAnimationsFromXML(doc);

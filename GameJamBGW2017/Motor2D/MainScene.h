@@ -27,6 +27,7 @@ public:
 	void OnCommand(std::list<std::string>& tokens);
 	SDL_Texture* GetAtlas();
 
+	Baffle* GetBaffle(); 
 
 	GameObject* go = nullptr;
 	Parallax* p1 = nullptr;
@@ -38,9 +39,8 @@ private:
 
 	Baffle* baffle; 
 
-	SDL_Texture* background = nullptr;
 	SDL_Texture* main_atlas = nullptr; 
-
+	SDL_Rect field = NULLRECT; 
 
 	Player* player1 = nullptr;
 	Player* player2 = nullptr;
