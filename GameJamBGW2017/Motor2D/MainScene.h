@@ -9,6 +9,7 @@ class b2Fixture;
 class Parallax;
 class Player;
 class Player2;
+class Baffle; 
 
 class MainScene : public Scene 
 {
@@ -24,6 +25,8 @@ public:
 
 	void OnColl(PhysBody* bodyA, PhysBody* bodyB, b2Fixture* fixtureA, b2Fixture* fixtureB);
 	void OnCommand(std::list<std::string>& tokens);
+	SDL_Texture* GetAtlas();
+
 
 	GameObject* go = nullptr;
 	Parallax* p1 = nullptr;
@@ -32,8 +35,12 @@ public:
 
 private:
 	SDL_Rect win_rect;
+
+	Baffle* baffle; 
+
 	SDL_Texture* background = nullptr;
-	SDL_Texture* main_atlas = nullptr;
+	SDL_Texture* main_atlas = nullptr; 
+
 
 	Player* player1 = nullptr;
 	Player* player2 = nullptr;

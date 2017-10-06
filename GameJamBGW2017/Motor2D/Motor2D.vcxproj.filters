@@ -85,6 +85,9 @@
     <ClCompile Include="IntroScene.cpp">
       <Filter>Engine\3. Scenes ==========\IntroScene</Filter>
     </ClCompile>
+    <ClCompile Include="Baffle.cpp">
+      <Filter>Engine\4. Entities ==========\Baffle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -201,6 +204,9 @@
     <ClInclude Include="IntroScene.h">
       <Filter>Engine\3. Scenes ==========\IntroScene</Filter>
     </ClInclude>
+    <ClInclude Include="Baffle.h">
+      <Filter>Engine\4. Entities ==========\Baffle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
@@ -232,6 +238,9 @@
     </Filter>
     <Filter Include="Engine\3. Scenes ==========\IntroScene">
       <UniqueIdentifier>{018768c8-a63c-4eed-be3f-530abbdf8b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\4. Entities ==========\Baffle">
+      <UniqueIdentifier>{dfe51177-e8e8-4af8-8461-3049a9ee32fe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

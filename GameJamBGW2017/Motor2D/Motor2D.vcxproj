@@ -77,6 +77,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Baffle.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="IntroScene.cpp" />
@@ -107,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Baffle.h" />
     <ClInclude Include="CollisionFilters.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Functions.h" />

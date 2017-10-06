@@ -12,6 +12,7 @@
 #include "j1Entity.h"
 #include "CollisionFilters.h"
 #include "Player.h"
+#include "Baffle.h"
 #include "j1Map.h"
 #include "j1Window.h"
 
@@ -43,10 +44,14 @@ bool MainScene::Start()
 	//player3 = new Player();
 	//player3->bot_pos = true;
 
-
 	player1->LoadEntity();
 	//player2->LoadEntity();
 	//player3->LoadEntity();
+
+//	main_atlas = (SDL_Texture*)App->tex->LoadTexture("textures/placeholder.png"); 
+
+	baffle = new Baffle();
+	baffle->Start();
 
 
 	return ret;
@@ -63,6 +68,10 @@ bool MainScene::Update(float dt)
 {
 	bool ret = true;	
 	player1->Update(dt);
+
+
+	baffle->Update();
+
 	player1->Draw(dt);
 	
 
@@ -146,5 +155,10 @@ void MainScene::OnCommand(std::list<std::string>& tokens)
 	default:
 		break;
 	}*/
+}
+
+SDL_Texture * MainScene::GetAtlas()
+{
+	return main_atlas;
 }
 
