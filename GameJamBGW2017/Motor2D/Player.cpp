@@ -40,13 +40,13 @@ bool Player::LoadEntity()
 	player_go->SetListener((j1Module*)App->entity);
 	player_go->SetFixedRotation(true);
 
-	player_go->SetTexture(App->tex->LoadTexture("spritesheet.png"));
+	player_go->SetTexture(App->tex->LoadTexture("textures/spritesheet.png"));
 
 	pugi::xml_document doc;
 	App->LoadXML("player.xml", doc);
 	player_go->LoadAnimationsFromXML(doc);
 
-	player_go->SetAnimation("idle_down");
+	player_go->SetAnimation("idle");
 
 
 	return ret;
@@ -76,32 +76,32 @@ bool Player::Update(float dt)
 
 	float speed = (200 * dt);
 	//---dance movements interaction
-	if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_A) == KEY_REPEAT)
+	if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_A) == KEY_DOWN)
 	{
 		//A interaction with balls
 		//
 		//score interaction,check(good,great,perfect)
 	}
-	else if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_B) == KEY_REPEAT)
+	else if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_B) == KEY_DOWN)
 	{
 		//B interaction with balls
 		//
 		//score interaction,check(good,great,perfect)
 	}
-	else if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_X) == KEY_REPEAT)
+	else if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_X) == KEY_DOWN)
 	{
 		//X interaction with balls
 		//
 		//score interaction,check(good,great,perfect)
 	}
-	else if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_Y) == KEY_REPEAT)
+	else if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_Y) == KEY_DOWN)
 	{
 		//Y interaction with balls
 		//
 		//score interaction,check(good,great,perfect)
 	}
 	//transition
-	if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_LEFTSHOULDER) == KEY_REPEAT)
+	if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_LEFTSHOULDER) == KEY_DOWN)
 	{
 		//Change position - Transition??
 		//play animation of transition
@@ -115,39 +115,68 @@ bool Player::Update(float dt)
 			middle_pos = false;
 			bot_pos = true;
 			player_go->SetPos(bot_coord);
+			curr_coord = bot_coord;
+			
 
 		}
 		else if (middle_pos == true)
 		{
-			top_pos == true;
+			top_pos = true;
 			middle_pos = false;
 			bot_pos = false;
 			player_go->SetPos(top_coord);
+			curr_coord = top_coord;
+
 		}
 		else if (bot_pos == true)
 		{
-			top_pos == false;
+			top_pos = false;
 			middle_pos = true;
 			bot_pos = false;
 			player_go->SetPos(mid_coord);
+			curr_coord = mid_coord;
+
+		}
+
+	}else if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER) == KEY_DOWN)
+	{
+		//Change position - Transition??
+		//play animation of transition
+		//player_go->SetAnimation("transition");
+		//change position
+		dance_pos = transition;
+		//change bools
+		if (top_pos == true)
+		{
+			top_pos = false;
+			middle_pos = true;
+			bot_pos = false;
+			player_go->SetPos(mid_coord);
+			curr_coord = mid_coord;
+
+
+		}
+		else if (middle_pos == true)
+		{
+			top_pos = false;
+			middle_pos = false;
+			bot_pos = true;
+			player_go->SetPos(bot_coord);
+			curr_coord = bot_coord;
+
+		}
+		else if (bot_pos == true)
+		{
+			top_pos = true;
+			middle_pos = false;
+			bot_pos = false;
+			player_go->SetPos(top_coord);
+			curr_coord = top_coord;
+
 		}
 
 	}
-	else if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER) == KEY_REPEAT)
-	{
-		player_go->SetPos({ player_go->fGetPos().x + speed, player_go->fGetPos().y });
 
-	}
-	else if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT || App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_DPAD_UP) == KEY_REPEAT || App->input->GetControllerJoystickMove(gamepad_num, LEFTJOY_UP) > 12000)
-	{
-		player_go->SetPos({ player_go->fGetPos().x, player_go->fGetPos().y - speed });
-
-	}
-	else if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT || App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == KEY_REPEAT || App->input->GetControllerJoystickMove(gamepad_num, LEFTJOY_DOWN) > 12000)
-	{
-		player_go->SetPos({ player_go->fGetPos().x, player_go->fGetPos().y + speed });
-
-	}
 	return ret;
 }
 

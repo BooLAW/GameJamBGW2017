@@ -31,8 +31,9 @@ public:
 	fPoint pos;
 
 private:
-
+	SDL_Rect win_rect;
 	SDL_Texture* background = nullptr;
+	SDL_Texture* main_atlas = nullptr;
 
 	Player* player1 = nullptr;
 	Player* player2 = nullptr;

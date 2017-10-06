@@ -109,7 +109,7 @@ bool IntroScene::Update(float dt)
 		exit_cheer_animator->SetAnimation("cheer_up");
 		break;
 	}
-
+	
 	App->render->Blit(intro_atlas, start_cheer_pos.x, start_cheer_pos.y, &start_cheer_animator->GetCurrentAnimation()->GetAnimationFrame(dt));
 	App->render->Blit(intro_atlas, options_cheer_pos.x, options_cheer_pos.y, &options_cheer_animator->GetCurrentAnimation()->GetAnimationFrame(dt));
 	App->render->Blit(intro_atlas, exit_cheer_pos.x, exit_cheer_pos.y, &exit_cheer_animator->GetCurrentAnimation()->GetAnimationFrame(dt));

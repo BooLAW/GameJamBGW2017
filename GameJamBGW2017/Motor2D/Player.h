@@ -2,9 +2,9 @@
 #define _PLAYER_
 
 #include "Entity.h"
-const fPoint top_coord = { 125.f,100.f };
-const fPoint mid_coord = { 10.f,10.f };
-const fPoint bot_coord = { 100.f,125.f };
+const fPoint top_coord = { 10.f,10.f };
+const fPoint mid_coord = { 500.f,250.f };
+const fPoint bot_coord = { 10.f,500.f };
 
 enum id_color {
 	red = 1,

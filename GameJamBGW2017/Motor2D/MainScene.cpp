@@ -13,6 +13,7 @@
 #include "CollisionFilters.h"
 #include "Player.h"
 #include "j1Map.h"
+#include "j1Window.h"
 
 
 MainScene::MainScene()
@@ -28,9 +29,12 @@ bool MainScene::Start()
 	bool ret = true;
 
 	LOG("Start MainScene");
-
+	win_rect = { 0,0,1920,1080 };
 	//Load Background
-	background = App->tex->LoadTexture("textures/background.jpg");
+	background = App->tex->LoadTexture("textures/background.png");
+	//Load Spritesheet
+	main_atlas = App->tex->LoadTexture("textures/spritesheet.png");
+
 	//Load Players
 	player1 = new Player();
 	player1->middle_pos = true;
@@ -58,8 +62,14 @@ bool MainScene::PreUpdate()
 bool MainScene::Update(float dt)
 {
 	bool ret = true;	
-
+	player1->Update(dt);
 	player1->Draw(dt);
+	
+
+	App->render->Blit(background, 0, 0,&win_rect, 0.7);
+	App->render->Blit(main_atlas, int(player1->curr_coord.x), int(player1->curr_coord.y), &player1->player_go->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
+	//App->render->Blit(main_atlas, int(player2->curr_coord.x), int(player1->curr_coord.y), &player1->player_go->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
+	//App->render->Blit(main_atlas, int(player3->curr_coord.x), int(player1->curr_coord.y), &player1->player_go->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
 
 	return ret;
 }
