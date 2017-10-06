@@ -7,6 +7,7 @@
 
 struct SDL_Texture;
 class MainScene;
+class IntroScene;
 
 class j1Scene : public j1Module
 {
@@ -50,6 +51,7 @@ public:
 public:
 	// Scenes
 	MainScene*           main_scene = nullptr;
+	IntroScene*			 intro_scene = nullptr; 
 
 private:
 	// Scenes list

@@ -32,7 +32,7 @@ public:
 
 private:
 
-	SDL_Texture* ring = nullptr; 
+//	SDL_Texture* ring = nullptr; 
 
 };
 

@@ -12,7 +12,6 @@
 #include "j1Entity.h"
 #include "CollisionFilters.h"
 #include "Player.h"
-#include "Player2.h"
 #include "j1Map.h"
 
 
@@ -31,7 +30,6 @@ bool MainScene::Start()
 	LOG("Start MainScene");
 
 	//Load Map
-	ring = App->tex->LoadTexture("maps/ring.png");
 
 	return ret;
 }
@@ -45,9 +43,7 @@ bool MainScene::PreUpdate()
 
 bool MainScene::Update(float dt)
 {
-	bool ret = true;
-
-	App->render->Blit(ring, 0, 0);
+	bool ret = true;	
 
 	return ret;
 }

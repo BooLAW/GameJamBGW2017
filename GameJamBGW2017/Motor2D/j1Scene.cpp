@@ -8,6 +8,7 @@
 #include "j1Window.h"
 #include "j1Scene.h"
 #include "MainScene.h"
+#include "IntroScene.h"
 #include "j1Console.h"
 
 #define NUMBER_OF_PLAYERS 4
@@ -41,12 +42,15 @@ bool j1Scene::Start()
 	LOG("Start module scene");
 
 	// Create scenes
+	intro_scene = new IntroScene();
+	scenes.push_back(main_scene);
+
 	main_scene = new MainScene();
 	scenes.push_back(main_scene);
 	// -------------
 
 	// Starting scene
-	current_scene = main_scene;
+	current_scene = intro_scene;
 
 	if(current_scene != nullptr)
 		ret = current_scene->Start();

@@ -24,7 +24,7 @@ bool Player::LoadEntity()
 {
 	bool ret = true;
 
-	player_go = new GameObject(iPoint(300, 300), App->cf->CATEGORY_PLAYER, App->cf->MASK_PLAYER, pbody_type::p_t_player, 0);
+	player_go = new GameObject(iPoint(400, 300), App->cf->CATEGORY_PLAYER, App->cf->MASK_PLAYER, pbody_type::p_t_player, 0);
 
 	player_go->CreateCollision(iPoint(0, 0), 45, 70, fixture_type::f_t_null);
 	player_go->SetListener((j1Module*)App->entity);
@@ -33,7 +33,7 @@ bool Player::LoadEntity()
 	player_go->SetTexture(App->tex->LoadTexture("spritesheet.png"));
 
 	pugi::xml_document doc;
-	App->LoadXML("player.xml", doc);
+	App->LoadXML("player2.xml", doc);
 	player_go->LoadAnimationsFromXML(doc);
 
 	player_go->SetAnimation("idle_down");
@@ -97,7 +97,7 @@ bool Player::Draw(float dt)
 {
 	bool ret = true;
 
-	if(player_go->animator->IsCurrentAnimation("run_lateral"))
+	if (player_go->animator->IsCurrentAnimation("run_lateral"))
 		player_go->SetAnimation("idle_lateral");
 
 	if (player_go->animator->IsCurrentAnimation("run_up"))
@@ -122,12 +122,12 @@ bool Player::Draw(float dt)
 	{
 		player_go->SetAnimation("run_down");
 	}
-	
-	
-	if(flip)
-		App->view->LayerBlit(2, player_go->GetTexture(), { player_go->GetPos().x - 26, player_go->GetPos().y - 35}, player_go->GetCurrentAnimationRect(dt), 0, 0, SDL_FLIP_HORIZONTAL);
+
+
+	if (flip)
+		App->view->LayerBlit(2, player_go->GetTexture(), { player_go->GetPos().x - 26, player_go->GetPos().y - 35 }, player_go->GetCurrentAnimationRect(dt), 0, -1.0f, SDL_FLIP_HORIZONTAL);
 	else
-		App->view->LayerBlit(2, player_go->GetTexture(), { player_go->GetPos().x - 23, player_go->GetPos().y - 35 }, player_go->GetCurrentAnimationRect(dt), 0, 0, SDL_FLIP_NONE);
+		App->view->LayerBlit(2, player_go->GetTexture(), { player_go->GetPos().x - 23, player_go->GetPos().y - 35 }, player_go->GetCurrentAnimationRect(dt), 0, -1.0f, SDL_FLIP_NONE);
 
 	return ret;
 }
@@ -145,8 +145,6 @@ bool Player::CleanUp()
 {
 	bool ret = true;
 
-
-
 	return ret;
 }
 
@@ -159,7 +157,7 @@ void Player::OnColl(PhysBody* bodyA, PhysBody * bodyB, b2Fixture * fixtureA, b2F
 		{
 		}
 		break;
-	
+
 	}
 }
 
