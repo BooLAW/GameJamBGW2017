@@ -80,7 +80,11 @@ bool IntroScene::Update(float dt)
 	if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_A) == KEY_DOWN)
 	{
 		if (curr_cheerleader == START_CHEERLEADER)
+		{
 			App->scene->ChangeScene((Scene*)App->scene->main_scene);
+			return true; 
+		}
+			
 
 		else if (curr_cheerleader == OPTIONS_CHEERLEADER)
 			App->scene->ChangeScene((Scene*)App->scene->main_scene);
@@ -126,6 +130,10 @@ bool IntroScene::PostUpdate()
 
 bool IntroScene::CleanUp()
 {
+	delete(exit_cheer_animator); 
+	delete(start_cheer_animator);
+	delete(options_cheer_animator);
+
 	return true;
 }
 
