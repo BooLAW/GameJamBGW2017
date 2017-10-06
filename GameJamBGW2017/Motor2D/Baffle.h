@@ -7,16 +7,20 @@
 #include "p2Defs.h"
 #include "j1Timer.h"
 #include "Animation.h"
+#include <vector>
 #include "j1Render.h"
 #include "j1Scene.h"
+#include "j1FileSystem.h"
 #include "MainScene.h"
 
-enum note_color
+class GameObject; 
+
+enum cheer_color
 {
-	BLUE_NOTE, 
-	RED_NOTE, 
-	GREEN_NOTE, 
-	GREY_NOTE, 
+	BLUE_CHEER, 
+	RED_CHEER, 
+	GREEN_CHEER, 
+	ALL_CHEER, 
 };
 
 enum note_button
@@ -31,16 +35,16 @@ class Note
 {
 
 public: 
-	Note() {};
+	Note();
 	~Note() {};
 
-	note_color color;
-	note_button button; 
+	void Update(); 
+	void Draw(float dt); 
 
-	iPoint pos; 
-	uint velocity; 
+	cheer_color receptor_color;
+	note_button button_color; 
 
-	Animator* note_animator; 
+	GameObject* note = nullptr; 
 
 	//Colider
 };
@@ -53,19 +57,33 @@ public:
 	~Baffle() {};
 
 	void Start(); 
-	void Update(); 
+	void Update(float dt); 
 
 private:
 
-	bool TouchNote(); 
+	bool TouchNote(note_button button, cheer_color receptor);
+	fPoint GetPos(); 
 
 private:
 
 	fPoint pos; 
 	SDL_Rect baffle_rect = NULLRECT; 
+
 	std::list<Note> notes_active; 
-	uint* current_song = nullptr; 
-	j1Timer song_time; 
+
+	std::vector<iPoint> current_song_array;
+
+	std::vector<iPoint> song1_array;
+	std::vector<iPoint> song2_array;
+
+	std::vector<float> song1_timing;
+	std::vector<float> song2_timing;
+
+	j1Timer song_time;
+	int index = -1; 
+
+	Animator* button_animator;
+	Animator* crown_animator;
 
 	SDL_Texture* atlas = nullptr; 
 

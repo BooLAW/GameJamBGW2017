@@ -32,9 +32,9 @@ bool MainScene::Start()
 	LOG("Start MainScene");
 	win_rect = { 0,0,1920,1080 };
 	//Load Background
-	background = App->tex->LoadTexture("textures/background.png");
+
 	//Load Spritesheet
-	main_atlas = App->tex->LoadTexture("textures/spritesheet.png");
+	main_atlas = App->tex->LoadTexture("textures/main_scene_spritesheet.png");
 
 	//Load Players
 	player1 = new Player();
@@ -53,6 +53,7 @@ bool MainScene::Start()
 	baffle = new Baffle();
 	baffle->Start();
 
+	field = SDL_Rect{ 0, 813, 1915, 701 }; 
 
 	return ret;
 }
@@ -69,14 +70,14 @@ bool MainScene::Update(float dt)
 	bool ret = true;	
 	player1->Update(dt);
 
-
-	baffle->Update();
+	App->render->Blit(main_atlas, 0, 350, &field);
+	baffle->Update(dt);
 
 	player1->Draw(dt);
 	
 
-	App->render->Blit(background, 0, 0,&win_rect, 0.7);
-	App->render->Blit(main_atlas, int(player1->curr_coord.x), int(player1->curr_coord.y), &player1->player_go->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
+	//App->render->Blit(background, 0, 0,&win_rect, 0.7);
+	//App->render->Blit(main_atlas, int(player1->curr_coord.x), int(player1->curr_coord.y), &player1->player_go->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
 	//App->render->Blit(main_atlas, int(player2->curr_coord.x), int(player1->curr_coord.y), &player1->player_go->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
 	//App->render->Blit(main_atlas, int(player3->curr_coord.x), int(player1->curr_coord.y), &player1->player_go->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
 
@@ -160,5 +161,10 @@ void MainScene::OnCommand(std::list<std::string>& tokens)
 SDL_Texture * MainScene::GetAtlas()
 {
 	return main_atlas;
+}
+
+Baffle * MainScene::GetBaffle()
+{
+	return baffle;
 }
 

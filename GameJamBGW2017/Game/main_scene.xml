@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<file>
+   <animations>
+      <anim speed = "2" name = "button_a" loop = "true">
+			  <rect x = "1176" y = "157" w = "121" h = "122"/>
+			  <rect x = "1176" y = "157" w = "121" h = "122"/>
+      </anim>
+	    <anim speed = "2" name = "button_b" loop = "true">
+			  <rect x = "1320" y = "157" w = "123" h = "122"/>
+			  <rect x = "1320" y = "157" w = "123" h = "122"/>
+      </anim>
+	    <anim speed = "2" name = "button_x" loop = "true">
+			  <rect x = "1469" y = "157" w = "121" h = "122"/>
+			  <rect x = "1469" y = "157" w = "121" h = "122"/>
+      </anim>
+	    <anim speed = "2" name = "button_y" loop = "true">
+			  <rect x = "1605" y = "157" w = "122" h = "122"/>
+			  <rect x = "1605" y = "157" w = "122" h = "122"/>
+      </anim>
+   <!--<anim speed = "2" name = "green_crown" loop = "true">
+       <rect x = "1171" y = "299" w = "142" h = "143"/>
+       <rect x = "1171" y = "299" w = "142" h = "143"/>
+     </anim>
+     <anim speed = "2" name = "blue_crown" loop = "true">
+       <rect x = "1339" y = "299" w = "145" h = "143"/>
+       <rect x = "1339" y = "299" w = "145" h = "143"/>
+     </anim>
+     <anim speed = "2" name = "red_crown" loop = "true">
+       <rect x = "1513" y = "299" w = "144" h = "143"/>
+       <rect x = "1513" y = "299" w = "144" h = "143"/>
+     </anim>
+     <anim speed = "2" name = "all_crown" loop = "true">
+       <rect x = "1673" y = "299" w = "143" h = "143"/>
+       <rect x = "1673" y = "299" w = "143" h = "143"/>
+     </anim> -->
+   </animations>
+</file>

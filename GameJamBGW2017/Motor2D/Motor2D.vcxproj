@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\Game\intro_screen.xml" />
+    <Xml Include="..\Game\main_scene.xml" />
     <Xml Include="..\Game\player2.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

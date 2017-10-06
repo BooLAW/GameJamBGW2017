@@ -250,5 +250,8 @@
     <Xml Include="..\Game\intro_screen.xml">
       <Filter>Engine\3. Scenes ==========\IntroScene</Filter>
     </Xml>
+    <Xml Include="..\Game\main_scene.xml">
+      <Filter>Engine\3. Scenes ==========\MainScene</Filter>
+    </Xml>
   </ItemGroup>
 </Project>
