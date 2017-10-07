@@ -184,43 +184,79 @@ bool Player::Draw(float dt)
 {
 	bool ret = true;
 
-
 	//Movement
 	if (top_pos == true)
 	{
 		//iddle anim 
-		player_go->SetAnimation("idle_top");
+		if(id == blue)
+			player_go->SetAnimation("idle_top_blue");
+		else if(id==red)
+			player_go->SetAnimation("idle_top_red");
+		else if (id==green)
+			player_go->SetAnimation("idle_top_green");
+
 	}
 	else if (middle_pos == true)
 	{
 		if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_A) == KEY_REPEAT)
 		{
-				player_go->SetAnimation("A_anim");
+			if (id == blue)
+				player_go->SetAnimation("A_anim_blue");
+			else if(id == red)
+				player_go->SetAnimation("A_anim_red");
+			else if(id==green)
+				player_go->SetAnimation("A_anim_green");
+
 		}
 		else if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_X) == KEY_REPEAT)
 		{
 			//X anim
-			player_go->SetAnimation("X_anim");
+			if (id == blue)
+				player_go->SetAnimation("X_anim_blue");
+			else if (id == red)
+				player_go->SetAnimation("X_anim_red");
+			else if (id == green)
+				player_go->SetAnimation("X_anim_green");
 		}
 		else if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_Y) == KEY_REPEAT)
 		{
 			//Y anim
-			player_go->SetAnimation("Y_anim");
+			if (id == blue)
+				player_go->SetAnimation("Y_anim_blue");
+			else if (id == red)
+				player_go->SetAnimation("Y_anim_red");
+			else if (id == green)
+				player_go->SetAnimation("Y_anim_green");
 		}
 		else if (App->input->GetControllerButton(gamepad_num, SDL_CONTROLLER_BUTTON_B) == KEY_REPEAT)
 		{
 			//B anim
-			player_go->SetAnimation("B_anim");
+			if (id == blue)
+				player_go->SetAnimation("B_anim_blue");
+			else if (id == red)
+				player_go->SetAnimation("B_anim_red");
+			else if (id == green)
+				player_go->SetAnimation("B_anim_green");
 		}
 		else
-			player_go->SetAnimation("idle_mid");
+			if (id == blue)
+				player_go->SetAnimation("idle_mid_blue");
+			else if (id == red)
+				player_go->SetAnimation("idle_mid_red");
+			else if (id == green)
+				player_go->SetAnimation("idle_mid_green");
 
 
 	}
 	else if (bot_pos == true)
 	{
 		//iddle anim 
-		player_go->SetAnimation("idle_bot");
+		if (id == blue)
+			player_go->SetAnimation("idle_bot_blue");
+		else if (id == red)
+			player_go->SetAnimation("idle_bot_red");
+		else if (id == green)
+			player_go->SetAnimation("idle_bot_green");
 	}
 	
 	return ret;

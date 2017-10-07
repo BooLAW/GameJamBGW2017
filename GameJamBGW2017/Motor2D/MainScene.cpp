@@ -33,22 +33,27 @@ bool MainScene::Start()
 	win_rect = { 0,0,1920,1080 };
 	//Load Background
 
+
 	//Load Spritesheet
 	main_atlas = App->tex->LoadTexture("textures/main_scene_spritesheet.png");
 
 	//Load Players
 	player1 = new Player();
 	player1->middle_pos = true;
-	//player2 = new Player();
-	//player2->top_pos = true;
-	//player3 = new Player();
-	//player3->bot_pos = true;
+	player1->id = red;
+	player2 = new Player();
+	player2->top_pos = true;
+	player2->id = blue;
+	player3 = new Player();
+	player3->bot_pos = true;
+	player3->id = green;
+
 
 	player1->LoadEntity();
-	//player2->LoadEntity();
-	//player3->LoadEntity();
+	player2->LoadEntity();
+	player3->LoadEntity();
 
-//	main_atlas = (SDL_Texture*)App->tex->LoadTexture("textures/placeholder.png"); 
+	//main_atlas = (SDL_Texture*)App->tex->LoadTexture("textures/placeholder.png"); 
 
 	baffle = new Baffle();
 	baffle->Start();

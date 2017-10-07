@@ -9,7 +9,7 @@ const fPoint bot_coord = { 10.f,500.f };
 enum id_color {
 	red = 1,
 	green,
-	yellow,
+	blue,
 	null_color
 };
 enum pos {
