@@ -74,17 +74,11 @@ bool MainScene::Update(float dt)
 {
 	bool ret = true;	
 	player1->Update(dt);
-	player2->Update(dt);
-	player3->Update(dt);
-
 
 	App->render->Blit(main_atlas, 0, 75, &field);
 	baffle->Update(dt, main_atlas);
 
 	player1->Draw(dt);
-	player2->Draw(dt);
-	player3->Draw(dt);
-
 	
 
 	//App->render->Blit(background, 0, 0,&win_rect, 0.7);

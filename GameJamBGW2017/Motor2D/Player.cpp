@@ -78,7 +78,6 @@ bool Player::Update(float dt)
 	//---dance movements interaction
 	if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_A) == KEY_DOWN)
 	{
-		
 		//A interaction with balls
 		//
 		//score interaction,check(good,great,perfect)
