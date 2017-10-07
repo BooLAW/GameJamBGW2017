@@ -14,6 +14,7 @@
 #include "MainScene.h"
 
 class GameObject; 
+class Note; 
 
 enum cheer_color
 {
@@ -31,23 +32,6 @@ enum note_button
 	Y_NOTE,
 };
 
-class Note
-{
-
-public: 
-	Note();
-	~Note() {};
-
-	void Update(); 
-	void Draw(float dt); 
-
-	cheer_color receptor_color;
-	note_button button_color; 
-
-	GameObject* note = nullptr; 
-
-	//Colider
-};
 
 class Baffle
 {
@@ -57,16 +41,21 @@ public:
 	~Baffle() {};
 
 	void Start(); 
-	void Update(float dt); 
+	void Update(float dt, SDL_Texture* atlas); 
 
 private:
 
-	bool TouchNote(note_button button, cheer_color receptor);
-	fPoint GetPos(); 
+	bool TouchNote(note_button button, cheer_color receptor); 
+
+
+public: 
+	fPoint expulse_pos = { 0,0 };
+	SDL_Texture* atlas;
 
 private:
 
 	fPoint pos; 
+	
 	SDL_Rect baffle_rect = NULLRECT; 
 
 	std::list<Note> notes_active; 
@@ -85,8 +74,25 @@ private:
 	Animator* button_animator;
 	Animator* crown_animator;
 
-	SDL_Texture* atlas = nullptr; 
+};
 
+class Note
+{
+
+public:
+	Note();
+	~Note() {};
+
+	void Update();
+	void Draw(float dt, SDL_Texture* atlas);
+
+	cheer_color receptor_color;
+	note_button button_color;
+
+	GameObject* note = nullptr;
+	float velocity = 0;
+
+	//Colider
 };
 
 

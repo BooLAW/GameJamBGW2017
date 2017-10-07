@@ -4,10 +4,12 @@
 
 void Baffle::Start()
 {
-	atlas = App->scene->main_scene->GetAtlas(); 
+	atlas = App->tex->LoadTexture("textures/main_scene_spritesheet.png");
 
-	pos = fPoint(0.0f, 150.0f); 
-	baffle_rect = { 0, 0, 389, 796}; 
+	pos = fPoint(50.0f, 375.0f);
+	expulse_pos = fPoint(pos.x + 150, pos.y + 150); 
+	
+	baffle_rect = { 0, 0, 297, 607}; 
 
 	song1_array.push_back(iPoint(B_NOTE, BLUE_CHEER));
 	song1_array.push_back(iPoint(1, 4));
@@ -35,7 +37,7 @@ void Baffle::Start()
 	
 }
 
-void Baffle::Update(float dt)
+void Baffle::Update(float dt, SDL_Texture* atlas)
 {
 	
 		if (song_time.Read() >= song1_timing[index] && (song_time.Read() <= song1_timing[index + 1] || index == song1_array.size() - 1))
@@ -48,9 +50,9 @@ void Baffle::Update(float dt)
 
 		for (std::list<Note>::iterator it = notes_active.begin(); it != notes_active.end(); it++)
 		{
-			it->Draw(dt);
-		}
-	
+			it->Update();
+			it->Draw(dt, atlas);
+		}	
 }
 
 
@@ -82,14 +84,12 @@ bool Baffle::TouchNote(note_button button, cheer_color receptor)
 	return true;
 }
 
-fPoint Baffle::GetPos()
-{
-	return pos;
-}
+
+
 
 Note::Note()
 {
-	note = new GameObject(iPoint(0, 0), App->cf->CATEGORY_SCENERY, App->cf->MASK_SCENERY, pbody_type::p_t_note); 
+	note = new GameObject(iPoint(App->scene->main_scene->GetBaffle()->expulse_pos.x, App->scene->main_scene->GetBaffle()->expulse_pos.y), App->cf->CATEGORY_SCENERY, App->cf->MASK_SCENERY, pbody_type::p_t_note, 0);
 
 	pugi::xml_document doc;
 
@@ -99,15 +99,19 @@ Note::Note()
 	RELEASE(buf);
 
 	note->animator->LoadAnimationsFromXML(doc); 
+	note->SetPos({ App->scene->main_scene->GetBaffle()->expulse_pos.x, App->scene->main_scene->GetBaffle()->expulse_pos.y });
+
+
+	velocity = 1.0f; 
 
 }
 
 void Note::Update()
 {
-
+	note->SetPos(fPoint(note->GetPos().x + velocity, note->GetPos().y));
 }
 
-void Note::Draw(float dt)
+void Note::Draw(float dt, SDL_Texture* atlas)
 {
-	App->render->Blit(App->scene->main_scene->GetAtlas(), note->GetPos().x, note->GetPos().y, &note->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
+	App->render->Blit(atlas, note->GetPos().x, note->GetPos().y, &note->animator->GetCurrentAnimation()->GetAnimationFrame(dt));
 }
