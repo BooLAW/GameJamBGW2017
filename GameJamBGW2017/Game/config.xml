@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config>
 	<app framerate_cap="">
-		<title name="Project 2 - CatPad" />
+		<title name="BGW 2017" />
 		<organization>UPC</organization>
 	</app>
 	<renderer>
@@ -14,7 +14,7 @@
 		<atlas file="gui/sf2.png" />
 	</gui>
 	<window>
-		<resolution width="1200" height="920" scale="1" />
+		<resolution width="1920" height="1080" scale="1" />
 		<fullscreen value="false" />
 		<borderless value="false" />
 		<resizable value="false" />

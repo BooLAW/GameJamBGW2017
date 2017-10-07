@@ -53,7 +53,7 @@ bool MainScene::Start()
 	baffle = new Baffle();
 	baffle->Start();
 
-	field = SDL_Rect{ 0, 813, 1915, 701 }; 
+	field = SDL_Rect{ 0, 627, 1915, 1009 }; 
 
 	return ret;
 }
@@ -70,8 +70,8 @@ bool MainScene::Update(float dt)
 	bool ret = true;	
 	player1->Update(dt);
 
-	App->render->Blit(main_atlas, 0, 350, &field);
-	baffle->Update(dt);
+	App->render->Blit(main_atlas, 0, 75, &field);
+	baffle->Update(dt, main_atlas);
 
 	player1->Draw(dt);
 	
