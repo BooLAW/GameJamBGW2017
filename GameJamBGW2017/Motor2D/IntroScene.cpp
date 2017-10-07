@@ -65,7 +65,7 @@ bool IntroScene::Start()
 
 bool IntroScene::Update(float dt)
 {
-
+	
 	if (App->input->GetControllerButton(0, SDL_CONTROLLER_BUTTON_DPAD_RIGHT) == KEY_DOWN)
 	{
 		SwitchState("right");

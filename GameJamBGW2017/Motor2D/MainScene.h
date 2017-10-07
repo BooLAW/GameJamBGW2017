@@ -4,6 +4,8 @@
 #include "Scene.h"
 #include "j1Render.h"
 
+#define MAX_SCORE 5000
+class Animator;
 class GameObject;
 class b2Fixture;
 class Parallax;
@@ -30,14 +32,21 @@ public:
 	Baffle* GetBaffle(); 
 
 	GameObject* go = nullptr;
+	//Sensors 
+	SDL_Rect* good = nullptr;
+	SDL_Rect* great = nullptr;
+	SDL_Rect* perfect = nullptr;
+
 	Parallax* p1 = nullptr;
 
 	fPoint pos;
 
 private:
 	SDL_Rect win_rect;
-
+	uint score = 0;
 	Baffle* baffle; 
+
+	Animator* score_bar;
 
 	SDL_Texture* main_atlas = nullptr; 
 	SDL_Rect field = NULLRECT; 
