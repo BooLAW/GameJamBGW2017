@@ -19,9 +19,9 @@ The music used is from NCS: http://youtube.com/NoCopyrightSounds
 
 The first song used is: Cartoon - On & On (feat. Daniel Levi) https://www.youtube.com/watch?v=K4DyBUG242c
 
-* You can follow Cartoon on social media:
+** You can follow Cartoon on social media:**
 - SoundCloud https://soundcloud.com/cartoonbaboon
 - Facebook https://www.facebook.com/cartoondband
-* And Daniel Levi (vocalist):
+** And Daniel Levi (vocalist):**
 - Facebook http://facebook.com/daniellevimusic
 - Website http://daniellevi.eu/
